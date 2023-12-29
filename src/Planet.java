@@ -25,17 +25,15 @@ public class Planet { // класс планеты
         this.dist = d;
         this.radius = r;
         this.days = days;
-        //выполнить один раз
-        Timer t;
+
+
+        Timer t; //выполнить один раз
         t = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double speed = Panel.base.days / days  * 2;
-
                 ALPHA+=speed;
-                //переменная p глобальная
-                Okno.p.repaint();
-
+                Okno.p.repaint(); //переменная p глобальная
             }
         });
         t.start();
@@ -48,7 +46,7 @@ public class Planet { // класс планеты
 
     public void draw(Graphics g) {
 
-        // 1 - эклиптика
+        // 1 - Рисование эклиптики
 
         g.setColor(c);
         double z = Panel.base.dist;
@@ -57,7 +55,7 @@ public class Planet { // класс планеты
         g.drawOval(xx, xx, R * 2, R * 2);
 
 
-        // 2 - сама планета
+        // 2 - Рисование планеты
 
         z = Panel.base.radius;
         W = (int) (radius / z * 60);

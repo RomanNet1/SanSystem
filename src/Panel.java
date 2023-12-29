@@ -5,7 +5,7 @@ public class Panel extends JPanel {
 
     Planet earth; // планета Земля
     Planet venus;// планета Венера
-    Planet mercure;
+    Planet mercure;// планета Меркурий
     static Planet base; // базовая планета, от которой всё рисуется
 
 
