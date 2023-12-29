@@ -21,7 +21,9 @@ public class Planet { // класс планеты
         t = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ALPHA++;
+                double speed = 365.256363004 / days  * 2;
+
+                ALPHA+=speed;
                 //переменная p глобальная
                 Okno.p.repaint();
 
@@ -35,11 +37,16 @@ public class Planet { // класс планеты
         // 1 - эклиптика
 
         g.setColor(c);
-        R = dist / 149598261 * 300;
-        g.drawOval(0, 0, R * 2, R * 2);
-        System.out.println(dist);
+        double z = 149598261;
+        R = (int) (dist / z * 300);
+        int xx = (300 - R);
+        g.drawOval(xx, xx, R * 2, R * 2);
+        //System.out.println(R);
+
         // 2 - сама планета
-        ALPHA ++;
+
+        z = 6371;
+        W = (int) (radius / z * 60);
         int x = (int) (X0 + R * Math.cos(Math.toRadians(ALPHA) ));
         int y = (int) (Y0 + R * Math.sin(Math.toRadians(ALPHA)));
         g.fillOval(x - W / 2, y - W / 2, W, W);
